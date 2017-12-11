@@ -377,7 +377,7 @@ namespace Microsoft.Xna.Framework.Storage
 			string[] drives = Environment.GetLogicalDrives();
 			for (int i = 0; i < drives.Length; i += 1)
 			{
-				if (	storageRoot.StartsWith(drives[i]) &&
+				if (	storageRoot.StartsWith(drives[i], StringComparison.Ordinal) &&
 					drives[i].Length > length	)
 				{
 					drive = i;

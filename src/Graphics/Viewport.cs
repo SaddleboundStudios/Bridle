@@ -9,6 +9,7 @@
 
 #region Using Statements
 using System;
+using System.Globalization;
 #endregion
 
 namespace Microsoft.Xna.Framework.Graphics
@@ -294,8 +295,8 @@ namespace Microsoft.Xna.Framework.Graphics
 				" Y:" + y.ToString() +
 				" Width:" + width.ToString() +
 				" Height:" + height.ToString() +
-				" MinDepth:" + minDepth.ToString() +
-				" MaxDepth:" + maxDepth.ToString() +
+				" MinDepth:" + minDepth.ToString(CultureInfo.InvariantCulture) +
+				" MaxDepth:" + maxDepth.ToString(CultureInfo.InvariantCulture) +
 				"}"
 			);
 		}

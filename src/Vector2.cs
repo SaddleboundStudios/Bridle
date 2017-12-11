@@ -85,8 +85,8 @@ namespace Microsoft.Xna.Framework
 			get
 			{
 				return string.Concat(
-					X.ToString(), " ",
-					Y.ToString()
+					X.ToString(CultureInfo.InvariantCulture), " ",
+					Y.ToString(CultureInfo.InvariantCulture)
 				);
 			}
 		}
@@ -209,8 +209,8 @@ namespace Microsoft.Xna.Framework
 		public override string ToString()
 		{
 			return (
-				"{X:" + X.ToString() +
-				" Y:" + Y.ToString() +
+				"{X:" + X.ToString(CultureInfo.InvariantCulture) +
+				" Y:" + Y.ToString(CultureInfo.InvariantCulture) +
 				"}"
 			);
 		}

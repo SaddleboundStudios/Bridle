@@ -39,7 +39,7 @@ namespace Microsoft.Xna.Framework.Utilities
             // Uri accepts forward slashes
             filePath = filePath.Replace(BackwardSlash, ForwardSlash);
 
-            bool hasForwardSlash = filePath.StartsWith(ForwardSlashString);
+            bool hasForwardSlash = filePath.StartsWith(ForwardSlashString, StringComparison.Ordinal);
             if (!hasForwardSlash)
                 filePath = ForwardSlashString + filePath;
 
@@ -52,7 +52,7 @@ namespace Microsoft.Xna.Framework.Utilities
             // relative addresses resolved... get the local path.
             var localPath = dst.LocalPath;
 
-            if (!hasForwardSlash && localPath.StartsWith("/"))
+            if (!hasForwardSlash && localPath.StartsWith("/", StringComparison.Ordinal))
                 localPath = localPath.Substring(1);
 
             // Convert the directory separator characters to the 

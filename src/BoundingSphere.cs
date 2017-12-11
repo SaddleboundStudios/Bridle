@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-
+using System.Globalization;
 using Microsoft.Xna.Framework.Design;
 #endregion
 
@@ -38,7 +38,7 @@ namespace Microsoft.Xna.Framework
 			{
 				return string.Concat(
 					"Center( ", Center.DebugDisplayString, " ) \r\n",
-					"Radius( ", Radius.ToString(), " ) "
+					"Radius( ", Radius.ToString(CultureInfo.InvariantCulture), " ) "
 				);
 			}
 		}
@@ -651,7 +651,7 @@ namespace Microsoft.Xna.Framework
 		{
 			return (
 				"{Center:" + Center.ToString() +
-				" Radius:" + Radius.ToString() +
+				" Radius:" + Radius.ToString(CultureInfo.InvariantCulture) +
 				"}"
 			);
 		}

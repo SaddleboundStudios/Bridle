@@ -15,7 +15,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-
+using System.Globalization;
 using Microsoft.Xna.Framework.Design;
 #endregion
 
@@ -170,22 +170,22 @@ namespace Microsoft.Xna.Framework
 			get
 			{
 				return string.Concat(
-					"( ", M11.ToString(), " ",
-					M12.ToString(), " ",
-					M13.ToString(), " ",
-					M14.ToString(), " ) \r\n",
-					"( ", M21.ToString(), " ",
-					M22.ToString(), " ",
-					M23.ToString(), " ",
-					M24.ToString(), " ) \r\n",
-					"( ", M31.ToString(), " ",
-					M32.ToString(), " ",
-					M33.ToString(), " ",
-					M34.ToString(), " ) \r\n",
-					"( ", M41.ToString(), " ",
-					M42.ToString(), " ",
-					M43.ToString(), " ",
-					M44.ToString(), " )"
+					"( ", M11.ToString(CultureInfo.InvariantCulture), " ",
+					M12.ToString(CultureInfo.InvariantCulture), " ",
+					M13.ToString(CultureInfo.InvariantCulture), " ",
+					M14.ToString(CultureInfo.InvariantCulture), " ) \r\n",
+					"( ", M21.ToString(CultureInfo.InvariantCulture), " ",
+					M22.ToString(CultureInfo.InvariantCulture), " ",
+					M23.ToString(CultureInfo.InvariantCulture), " ",
+					M24.ToString(CultureInfo.InvariantCulture), " ) \r\n",
+					"( ", M31.ToString(CultureInfo.InvariantCulture), " ",
+					M32.ToString(CultureInfo.InvariantCulture), " ",
+					M33.ToString(CultureInfo.InvariantCulture), " ",
+					M34.ToString(CultureInfo.InvariantCulture), " ) \r\n",
+					"( ", M41.ToString(CultureInfo.InvariantCulture), " ",
+					M42.ToString(CultureInfo.InvariantCulture), " ",
+					M43.ToString(CultureInfo.InvariantCulture), " ",
+					M44.ToString(CultureInfo.InvariantCulture), " )"
 				);
 			}
 		}
@@ -463,22 +463,22 @@ namespace Microsoft.Xna.Framework
 		public override string ToString()
 		{
 			return (
-				"{M11:" + M11.ToString() +
-				" M12:" + M12.ToString() +
-				" M13:" + M13.ToString() +
-				" M14:" + M14.ToString() +
-				"} {M21:" + M21.ToString() +
-				" M22:" + M22.ToString() +
-				" M23:" + M23.ToString() +
-				" M24:" + M24.ToString() +
-				"} {M31:" + M31.ToString() +
-				" M32:" + M32.ToString() +
-				" M33:" + M33.ToString() +
-				" M34:" + M34.ToString() +
-				"} {M41:" + M41.ToString() +
-				" M42:" + M42.ToString() +
-				" M43:" + M43.ToString() +
-				" M44:" + M44.ToString() + "}"
+				"{M11:" + M11.ToString(CultureInfo.InvariantCulture) +
+				" M12:" + M12.ToString(CultureInfo.InvariantCulture) +
+				" M13:" + M13.ToString(CultureInfo.InvariantCulture) +
+				" M14:" + M14.ToString(CultureInfo.InvariantCulture) +
+				"} {M21:" + M21.ToString(CultureInfo.InvariantCulture) +
+				" M22:" + M22.ToString(CultureInfo.InvariantCulture) +
+				" M23:" + M23.ToString(CultureInfo.InvariantCulture) +
+				" M24:" + M24.ToString(CultureInfo.InvariantCulture) +
+				"} {M31:" + M31.ToString(CultureInfo.InvariantCulture) +
+				" M32:" + M32.ToString(CultureInfo.InvariantCulture) +
+				" M33:" + M33.ToString(CultureInfo.InvariantCulture) +
+				" M34:" + M34.ToString(CultureInfo.InvariantCulture) +
+				"} {M41:" + M41.ToString(CultureInfo.InvariantCulture) +
+				" M42:" + M42.ToString(CultureInfo.InvariantCulture) +
+				" M43:" + M43.ToString(CultureInfo.InvariantCulture) +
+				" M44:" + M44.ToString(CultureInfo.InvariantCulture) + "}"
 			);
 		}
 

@@ -15,7 +15,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-
+using System.Globalization;
 using Microsoft.Xna.Framework.Design;
 #endregion
 
@@ -106,10 +106,10 @@ namespace Microsoft.Xna.Framework
 			get
 			{
 				return string.Concat(
-					X.ToString(), " ",
-					Y.ToString(), " ",
-					Z.ToString(), " ",
-					W.ToString()
+					X.ToString(CultureInfo.InvariantCulture), " ",
+					Y.ToString(CultureInfo.InvariantCulture), " ",
+					Z.ToString(CultureInfo.InvariantCulture), " ",
+					W.ToString(CultureInfo.InvariantCulture)
 				);
 			}
 		}
@@ -281,10 +281,10 @@ namespace Microsoft.Xna.Framework
 		public override string ToString()
 		{
 			return (
-				"{X:" + X.ToString() +
-				" Y:" + Y.ToString() +
-				" Z:" + Z.ToString() +
-				" W:" + W.ToString() + "}"
+				"{X:" + X.ToString(CultureInfo.InvariantCulture) +
+				" Y:" + Y.ToString(CultureInfo.InvariantCulture) +
+				" Z:" + Z.ToString(CultureInfo.InvariantCulture) +
+				" W:" + W.ToString(CultureInfo.InvariantCulture) + "}"
 			);
 		}
 

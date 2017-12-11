@@ -15,7 +15,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-
+using System.Globalization;
 using Microsoft.Xna.Framework.Design;
 #endregion
 
@@ -34,7 +34,7 @@ namespace Microsoft.Xna.Framework
 			{
 				return string.Concat(
 					Normal.DebugDisplayString, " ",
-					D.ToString()
+					D.ToString(CultureInfo.InvariantCulture)
 				);
 			}
 		}
@@ -319,7 +319,7 @@ namespace Microsoft.Xna.Framework
 		{
 			return (
 				"{Normal:" + Normal.ToString() +
-				" D:" + D.ToString() +
+				" D:" + D.ToString(CultureInfo.InvariantCulture) +
 				"}"
 			);
 		}

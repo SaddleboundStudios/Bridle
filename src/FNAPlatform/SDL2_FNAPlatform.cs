@@ -1917,7 +1917,7 @@ namespace Microsoft.Xna.Framework
 				string[] dirs = Directory.GetDirectories("/sys/class/leds/");
 				foreach (string dir in dirs)
 				{
-					if (	dir.EndsWith("blue") &&
+					if (	dir.EndsWith("blue", StringComparison.Ordinal) &&
 						(	dir.Contains("054C:05C4") ||
 							dir.Contains("054C:09CC")	)	)
 					{

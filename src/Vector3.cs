@@ -15,6 +15,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 
 using Microsoft.Xna.Framework.Design;
@@ -162,9 +163,9 @@ namespace Microsoft.Xna.Framework
 			get
 			{
 				return string.Concat(
-					X.ToString(), " ",
-					Y.ToString(), " ",
-					Z.ToString()
+					X.ToString(CultureInfo.InvariantCulture), " ",
+					Y.ToString(CultureInfo.InvariantCulture), " ",
+					Z.ToString(CultureInfo.InvariantCulture)
 				);
 			}
 		}
