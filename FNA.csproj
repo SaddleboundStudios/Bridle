@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -396,6 +396,7 @@
     <Compile Include="src\TitleContainer.cs" />
     <Compile Include="src\TitleLocation.cs" />
     <Compile Include="src\Utilities\AssemblyHelper.cs" />
+    <Compile Include="src\Utilities\ExtensionMethods.cs" />
     <Compile Include="src\Utilities\FileHelpers.cs" />
     <Compile Include="src\Vector2.cs" />
     <Compile Include="src\Vector3.cs" />
