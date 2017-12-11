@@ -398,6 +398,7 @@
     <Compile Include="src\Utilities\AssemblyHelper.cs" />
     <Compile Include="src\Utilities\ExtensionMethods.cs" />
     <Compile Include="src\Utilities\FileHelpers.cs" />
+    <Compile Include="src\Utilities\IRandom.cs" />
     <Compile Include="src\Utilities\Xorshift.cs" />
     <Compile Include="src\Vector2.cs" />
     <Compile Include="src\Vector3.cs" />

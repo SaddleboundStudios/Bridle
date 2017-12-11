@@ -6,6 +6,7 @@
  */
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,7 +16,7 @@ namespace Microsoft.Xna.Framework.Utilities
     /// Cross-platform, deterministic random numbers.
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Xorshift")]
-    public class Xorshift
+    public class Xorshift : IRandom
     {
         private uint _x = 123456789;
         private uint _y = 362436069;
@@ -32,9 +33,13 @@ namespace Microsoft.Xna.Framework.Utilities
             _w = seed;
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
         public byte[] NextBytes(byte[] buffer)
         {
+            if (buffer == null)
+            {
+                throw new ArgumentNullException(nameof(buffer));
+            }
+
             int offset = 0;
             while (_bytes.Any() && offset < buffer.Length)
             {
@@ -65,7 +70,38 @@ namespace Microsoft.Xna.Framework.Utilities
             return buffer;
         }
 
-        /// <summary>Returns a random number less than the specified maximum.</summary>
+        /// <summary>Returns a non-negative random integer.</summary>
+        /// <returns>A 32-bit signed integer that is greater than or equal to 0 and less than <see cref="F:System.Int32.MaxValue"/>.</returns>
+        public int Next()
+        {
+            uint x = _x, y = _y, z = _z, w = _w;
+            uint t = x ^ (x << 11);
+            x = y; y = z; z = w;
+            w = w ^ (w >> 19) ^ (t ^ (t >> 8));
+            _x = x; _y = y; _z = z; _w = w;
+            return (int)(w & 0x7FFFFFFF);
+        }
+
+        /// <summary>Returns an unsigned random integer.</summary>
+        /// <returns>A 32-bit unsigned integer that is greater than or equal to 0 and less than <see cref="F:System.UInt32.MaxValue"/>.</returns>
+        public uint NextUInt32()
+        {
+            uint x = _x, y = _y, z = _z, w = _w;
+            uint t = x ^ (x << 11);
+            x = y; y = z; z = w;
+            w = w ^ (w >> 19) ^ (t ^ (t >> 8));
+            _x = x; _y = y; _z = z; _w = w;
+            return (w);
+        }
+
+        /// <summary>Returns a random floating-point number between 0.0 and 1.0.</summary>
+        /// <returns>A double-precision floating point number that is greater than or equal to 0.0, and less than 1.0.</returns>
+        public double NextDouble()
+        {
+            return Next() * 4.6566128752458E-10;
+        }
+
+        /// <summary>Returns a non-negative random number less than the specified maximum.</summary>
         /// <returns>A 32-bit signed integer less than <paramref name="maxValue"/>.</returns>
         /// <param name="maxValue">The exclusive upper bound of the random number to be generated. <paramref name="maxValue"/> should be greater than zero.</param>
         public int Next(int maxValue)
@@ -78,10 +114,10 @@ namespace Microsoft.Xna.Framework.Utilities
             return (int)(w & 0x7FFFFFFF) % maxValue;
         }
 
-        /// <summary>Returns a random number less than the specified maximum.</summary>
+        /// <summary>Returns an unsigned random number less than the specified maximum.</summary>
         /// <returns>A 32-bit unsigned integer less than <paramref name="maxValue"/>.</returns>
         /// <param name="maxValue">The exclusive upper bound of the random number to be generated. <paramref name="maxValue"/> should be greater than zero.</param>
-        public uint Next(uint maxValue)
+        public uint NextUInt32(uint maxValue)
         {
             uint x = _x, y = _y, z = _z, w = _w;
             uint t = x ^ (x << 11);

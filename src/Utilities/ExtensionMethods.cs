@@ -11,6 +11,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -117,6 +118,74 @@ namespace Microsoft.Xna.Framework.Utilities
             return hash;
         }
         #endregion
+        #endregion
+
+        #region IList Extension Methods
+        [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
+        public static T GetRandomItem<T>(this IList<T> list, IRandom randomNumberGenerator)
+        {
+            if (randomNumberGenerator == null) { throw new ArgumentNullException(nameof(randomNumberGenerator)); }
+            if (list != null && list.Count > 0)
+            {
+                return list[randomNumberGenerator.Next(list.Count)];
+            }
+            return default(T);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
+        public static void Shuffle<T>(this IList<T> list, IRandom randomNumberGenerator)
+        {
+            if (list == null) { throw new ArgumentNullException(nameof(list)); }
+            if (randomNumberGenerator == null) { throw new ArgumentNullException(nameof(randomNumberGenerator)); }
+            int i = list.Count - 1;
+            while (i > 1)
+            {
+                int j = randomNumberGenerator.Next(i);
+                T value = list[j];
+                list[j] = list[i];
+                list[i] = value;
+                i--;
+            }
+        }
+        #endregion
+
+        #region Jagged Array Extension Methods
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "x"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "y")]
+        public static T[][] GetSection<T>(this T[][] byteArray, int xOffset, int yOffset, int width, int height)
+        {
+            if (byteArray == null) { throw new ArgumentNullException(nameof(byteArray)); }
+
+            T[][] temp = new T[width][];
+
+            for (int y = 0; y < temp.Length; y++)
+            {
+                temp[y] = new T[height];
+                for (int x = 0; x < temp[y].Length; x++)
+                {
+                    if (yOffset + y < 0)
+                    {
+                        temp[y][x] = default(T);
+                    }
+                    else if (xOffset + x < 0)
+                    {
+                        temp[y][x] = default(T);
+                    }
+                    else if (yOffset + y >= byteArray.Length)
+                    {
+                        temp[y][x] = default(T);
+                    }
+                    else if (xOffset + x >= byteArray[yOffset + y].Length)
+                    {
+                        temp[y][x] = default(T);
+                    }
+                    else
+                    {
+                        temp[y][x] = byteArray[yOffset + y][xOffset + x];
+                    }
+                }
+            }
+            return temp;
+        }
         #endregion
     }
 }
