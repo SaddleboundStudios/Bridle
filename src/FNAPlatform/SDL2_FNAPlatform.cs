@@ -836,7 +836,7 @@ namespace Microsoft.Xna.Framework
 			}
 			catch(DllNotFoundException e)
 			{
-				FNALoggerEXT.LogError("OpenAL not found! Need FNA.dll.config?");
+				FNALoggerEXT.LogError("OpenAL not found! Need Bridle.dll.config?");
 				throw e;
 			}
 			catch(Exception)

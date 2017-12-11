@@ -8,7 +8,7 @@
     <ProjectGuid>{35253CE1-C864-4CD3-8249-4D1319748E8F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Microsoft.Xna.Framework</RootNamespace>
-    <AssemblyName>FNA</AssemblyName>
+    <AssemblyName>Bridle</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>True</DebugSymbols>
@@ -416,7 +416,7 @@
     <Compile Include="lib\Theorafile\csharp\Theorafile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FNA.dll.config">
+    <None Include="Bridle.dll.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

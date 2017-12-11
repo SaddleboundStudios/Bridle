@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridle", "FNA.csproj", "{35253CE1-C864-4CD3-8249-4D1319748E8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Tests", "Unit Tests.csproj", "{CD6ADA55-9EFC-481A-9169-52C76B34B160}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AnyCPU = Debug|AnyCPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|AnyCPU = Release|AnyCPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x64.ActiveCfg = Debug|x64
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x64.Build.0 = Debug|x64
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x86.ActiveCfg = Debug|x86
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x86.Build.0 = Debug|x86
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|AnyCPU.Build.0 = Release|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x64.ActiveCfg = Release|x64
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x64.Build.0 = Release|x64
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x86.ActiveCfg = Release|x86
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x86.Build.0 = Release|x86
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Debug|x86.Build.0 = Debug|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Release|AnyCPU.Build.0 = Release|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Release|x64.Build.0 = Release|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD6ADA55-9EFC-481A-9169-52C76B34B160}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Bridle.csproj
+	EndGlobalSection
+EndGlobal

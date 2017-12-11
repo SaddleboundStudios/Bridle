@@ -1,8 +1,8 @@
 R: Gendarme.Rules.Design.AvoidRefAndOutParametersRule
-A: FNA
+A: Bridle
 
 R: Gendarme.Rules.Naming.AvoidDeepNamespaceHierarchyRule
-A: FNA
+A: Bridle
 
 # Ignore everything from the lib folder
 @ sdl2.ignore

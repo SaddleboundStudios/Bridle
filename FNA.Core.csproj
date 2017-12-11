@@ -346,7 +346,7 @@
 		<Compile Include="lib\Theorafile\csharp\Theorafile.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Include="FNA.dll.config">
+		<None Include="Bridle.dll.config">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>

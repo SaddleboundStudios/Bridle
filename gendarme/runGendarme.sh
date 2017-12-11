@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Filename of the FNA assembly output
-ASSEMBLYNAME="../bin/Debug/FNA.dll"
+ASSEMBLYNAME="../bin/Debug/Bridle.dll"
 
 # Move to script's directory
 cd "`dirname "$0"`"

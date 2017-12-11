@@ -7,16 +7,16 @@ using System.Resources;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FNA")]
-[assembly: AssemblyDescription("Accuracy-focused XNA4 reimplementation for open platforms")]
+[assembly: AssemblyTitle("Bridle")]
+[assembly: AssemblyDescription("A game engine focused on ease-of-use")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Release")]
 #endif
-[assembly: AssemblyCompany("Ethan \"flibitijibibo\" Lee")]
-[assembly: AssemblyProduct("FNA")]
-[assembly: AssemblyCopyright("Copyright (c) 2009-2017")]
+[assembly: AssemblyCompany("Saddlebound Studios")]
+[assembly: AssemblyProduct("Bridle")]
+[assembly: AssemblyCopyright("Copyright (c) 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
