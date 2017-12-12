@@ -46,6 +46,9 @@ namespace Microsoft.Xna.Framework
 	{
 		#region Public Properties
 
+		public GraphicsDeviceManager Graphics;
+		public SpriteBatch SpriteBatch;
+
 		public GameComponentCollection Components
 		{
 			get;
@@ -278,6 +281,8 @@ namespace Microsoft.Xna.Framework
 			TouchPanel.WindowHandle = Window.Handle;
 
 			FrameworkDispatcher.Update();
+
+			Graphics = new GraphicsDeviceManager(this);
 
 			// Ready to run the loop!
 			RunApplication = true;
@@ -713,6 +718,11 @@ namespace Microsoft.Xna.Framework
 				graphicsDeviceService.GraphicsDevice != null	)
 			{
 				graphicsDeviceService.DeviceDisposing += (o, e) => UnloadContent();
+
+				// Go ahead and create the SpriteBatch here, so the user doesn't need to call base.LoadContent();
+				// Create a new SpriteBatch, which can be used to draw textures.
+				SpriteBatch = new SpriteBatch(GraphicsDevice);
+
 				LoadContent();
 			}
 		}
