@@ -61,9 +61,10 @@ namespace Microsoft.Xna.Framework
 
 		#endregion
 
-		#region Internal Static Readonly Fields
+		#region Public Static Fields
 
-		internal static readonly float MachineEpsilonFloat = GetMachineEpsilonFloat();
+		// Not readonly for performance reasons.
+		public static float MachineEpsilonFloat = GetMachineEpsilonFloat();
 
 		#endregion
 
@@ -147,7 +148,7 @@ namespace Microsoft.Xna.Framework
 		/// will be returned.
 		/// </param>
 		/// <returns>The clamped value.</returns>
-		public static float Clamp(float value, float min, float max)
+		public static float Clamp(this float value, float min, float max)
 		{
 			// First we check to see if we're greater than the max.
 			value = (value > max) ? max : value;
@@ -329,11 +330,6 @@ namespace Microsoft.Xna.Framework
 			return angle;
 		}
 
-		#endregion
-
-		#region Internal Static Methods
-
-		// FIXME: This could be an extension! ClampIntEXT? -flibit
 		/// <summary>
 		/// Restricts a value to be within a specified range.
 		/// </summary>
@@ -347,19 +343,19 @@ namespace Microsoft.Xna.Framework
 		/// will be returned.
 		/// </param>
 		/// <returns>The clamped value.</returns>
-		internal static int Clamp(int value, int min, int max)
+		public static int Clamp(int value, int min, int max)
 		{
 			value = (value > max) ? max : value;
 			value = (value < min) ? min : value;
 			return value;
 		}
 
-		internal static bool WithinEpsilon(float floatA, float floatB)
+		public static bool WithinEpsilon(float floatA, float floatB)
 		{
 			return Math.Abs(floatA - floatB) < MachineEpsilonFloat;
 		}
 
-		internal static int ClosestMSAAPower(int value)
+		public static int ClosestMSAAPower(int value)
 		{
 			/* Checking for the highest power of two _after_ than the given int:
 			 * http://graphics.stanford.edu/~seander/bithacks.html#RoundUpPowerOf2
