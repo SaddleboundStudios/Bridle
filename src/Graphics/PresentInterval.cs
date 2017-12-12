@@ -7,6 +7,8 @@
  */
 #endregion
 
+#pragma warning disable 1574
+
 namespace Microsoft.Xna.Framework.Graphics
 {
 	/// <summary>
