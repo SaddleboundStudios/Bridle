@@ -10,9 +10,93 @@
  */
 #endregion
 
-namespace Microsoft.Xna.Framework.Input
+using System;
+
+namespace Microsoft.Xna.Framework.Input.Bridle
 {
-	public enum Input
+    public static class InputExtensionMethods
+    {
+        public static Input ToRaw(this Input input)
+        {
+            return (Input)((int)input & 0xFFFF);
+        }
+
+        internal static InputType GetInputType(this Input input)
+        {
+            int value = (int)input & 0xFFFF;
+            if (value >= 256 * 3)
+            {
+                return InputType.None;
+            }
+
+            if (value >= 256 * 2)
+            {
+                return InputType.MouseButton;
+            }
+
+            if (value >= 256)
+            {
+                return InputType.Button;
+            }
+
+            if (value >= 0)
+            {
+                return InputType.Key;
+            }
+
+            return InputType.None;
+        }
+
+        internal static Keys GetKey(this Input input)
+        {
+            int value = (int)input & 0xFFFF;
+            if (value >= 256)
+            {
+                return Keys.None;
+            }
+
+            if (value >= 0)
+            {
+                return (Keys)value;
+            }
+
+            return Keys.None;
+        }
+
+        internal static Buttons GetButton(this Input input)
+        {
+            int value = (int)input & 0xFFFF;
+            if (value >= 256 * 2)
+            {
+                return 0;
+            }
+
+            if (value >= 256)
+            {
+                return (Buttons)Math.Pow(2, value - 256);
+            }
+
+            return 0;
+        }
+
+        internal static MouseButtons GetMouseButton(this Input input)
+        {
+            int value = (int)input & 0xFFFF;
+            if (value >= 256 * 3)
+            {
+                return MouseButtons.None;
+            }
+
+            if (value >= 256 * 2)
+            {
+                return (MouseButtons)Math.Pow(2, value - 512);
+            }
+
+            return MouseButtons.None;
+        }
+    }
+
+    public enum Input
 	{
 		None = 0,
 		KeyBack = 8,

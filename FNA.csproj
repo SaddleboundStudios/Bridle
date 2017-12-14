@@ -76,6 +76,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -181,6 +182,13 @@
     <Compile Include="src\CurveKeyCollection.cs" />
     <Compile Include="src\CurveLoopType.cs" />
     <Compile Include="src\CurveTangent.cs" />
+    <Compile Include="src\Data\DataLoader.cs" />
+    <Compile Include="src\Data\DataLoaderConfig.cs" />
+    <Compile Include="src\Data\DataNode.cs" />
+    <Compile Include="src\Data\DataNodeExtensionMethods.cs" />
+    <Compile Include="src\Data\DataType.cs" />
+    <Compile Include="src\Data\FileReader.cs" />
+    <Compile Include="src\Data\FileWriter.cs" />
     <Compile Include="src\Design\BoundingBoxConverter.cs" />
     <Compile Include="src\Design\BoundingSphereConverter.cs" />
     <Compile Include="src\Design\ColorConverter.cs" />
@@ -216,6 +224,14 @@
     <Compile Include="src\GameServiceContainer.cs" />
     <Compile Include="src\GameTime.cs" />
     <Compile Include="src\GameWindow.cs" />
+    <Compile Include="src\Graphics\Alignments.cs" />
+    <Compile Include="src\Graphics\Font.cs" />
+    <Compile Include="src\Graphics\FontSize.cs" />
+    <Compile Include="src\Graphics\TextCharData.cs" />
+    <Compile Include="src\Graphics\TextureWithMetadata.cs" />
+    <Compile Include="src\Graphics\TextWordData.cs" />
+    <Compile Include="src\IGameScreen.cs" />
+    <Compile Include="src\Renderer.cs" />
     <Compile Include="src\Graphics\ClearOptions.cs" />
     <Compile Include="src\Graphics\ColorWriteChannels.cs" />
     <Compile Include="src\Graphics\CubeMapFace.cs" />
@@ -342,8 +358,12 @@
     <Compile Include="src\IDrawable.cs" />
     <Compile Include="src\IGameComponent.cs" />
     <Compile Include="src\IGraphicsDeviceManager.cs" />
+    <Compile Include="src\Input\Bridle\ControllerData.cs" />
+    <Compile Include="src\Input\Bridle\ControllerType.cs" />
     <Compile Include="src\Input\Buttons.cs" />
     <Compile Include="src\Input\ButtonState.cs" />
+    <Compile Include="src\Input\Bridle\Control.cs" />
+    <Compile Include="src\Input\Bridle\Controller.cs" />
     <Compile Include="src\Input\GamePad.cs" />
     <Compile Include="src\Input\GamePadButtons.cs" />
     <Compile Include="src\Input\GamePadCapabilities.cs" />
@@ -353,16 +373,18 @@
     <Compile Include="src\Input\GamePadThumbSticks.cs" />
     <Compile Include="src\Input\GamePadTriggers.cs" />
     <Compile Include="src\Input\GamePadType.cs" />
-    <Compile Include="src\Input\Input.cs" />
-    <Compile Include="src\Input\InputTypes.cs" />
+    <Compile Include="src\Input\Bridle\Input.cs" />
+    <Compile Include="src\Input\Bridle\InputTypes.cs" />
+    <Compile Include="src\Input\Bridle\IPhysicalButton.cs" />
     <Compile Include="src\Input\Keyboard.cs" />
     <Compile Include="src\Input\KeyboardState.cs" />
     <Compile Include="src\Input\Keys.cs" />
     <Compile Include="src\Input\KeyState.cs" />
-    <Compile Include="src\Input\ModifierKeys.cs" />
+    <Compile Include="src\Input\Bridle\ModifierKeys.cs" />
     <Compile Include="src\Input\Mouse.cs" />
-    <Compile Include="src\Input\MouseButtons.cs" />
+    <Compile Include="src\Input\Bridle\MouseButtons.cs" />
     <Compile Include="src\Input\MouseState.cs" />
+    <Compile Include="src\Input\Bridle\PhysicalButton.cs" />
     <Compile Include="src\Input\TextInputEXT.cs" />
     <Compile Include="src\Input\Touch\GestureSample.cs" />
     <Compile Include="src\Input\Touch\GestureType.cs" />
@@ -400,9 +422,16 @@
     <Compile Include="src\TitleContainer.cs" />
     <Compile Include="src\TitleLocation.cs" />
     <Compile Include="src\Utilities\AssemblyHelper.cs" />
+    <Compile Include="src\Utilities\Comparer2.cs" />
+    <Compile Include="src\Utilities\DictionaryEnumerator.cs" />
     <Compile Include="src\Utilities\ExtensionMethods.cs" />
     <Compile Include="src\Utilities\FileHelpers.cs" />
+    <Compile Include="src\Utilities\IOrderedDictionary.cs" />
     <Compile Include="src\Utilities\IRandom.cs" />
+    <Compile Include="src\Utilities\KeyedCollection2.cs" />
+    <Compile Include="src\Utilities\OrderedDictionary.cs" />
+    <Compile Include="src\Utilities\OrderedDictionaryDebugView.cs" />
+    <Compile Include="src\Utilities\StringExtensions.cs" />
     <Compile Include="src\Utilities\Xorshift.cs" />
     <Compile Include="src\Vector2.cs" />
     <Compile Include="src\Vector3.cs" />
@@ -447,4 +476,5 @@
       <LogicalName>Microsoft.Xna.Framework.Graphics.Effect.Resources.YUVToRGBAEffect.fxb</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
 </Project>

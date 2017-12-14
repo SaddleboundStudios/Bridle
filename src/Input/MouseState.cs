@@ -7,6 +7,8 @@
  */
 #endregion
 
+using Microsoft.Xna.Framework.Input.Bridle;
+
 namespace Microsoft.Xna.Framework.Input
 {
 	/// <summary>
@@ -177,6 +179,36 @@ namespace Microsoft.Xna.Framework.Input
 			return base.GetHashCode();
 		}
 
-		#endregion
-	}
+        #endregion
+
+        #region Public Methods
+
+        public bool IsButtonDown(MouseButtons buttons)
+        {
+            switch (buttons)
+            {
+                case MouseButtons.Mouse1:
+                    return LeftButton == ButtonState.Pressed;
+                case MouseButtons.Mouse2:
+                    return RightButton == ButtonState.Pressed;
+                case MouseButtons.Mouse3:
+                    return MiddleButton == ButtonState.Pressed;
+                case MouseButtons.Mouse4:
+                    return XButton1 == ButtonState.Pressed;
+                case MouseButtons.Mouse5:
+                    return XButton2 == ButtonState.Pressed;
+                case MouseButtons.ScrollUp:
+                    return Controller.MouseScrollUp;
+                case MouseButtons.ScrollDown:
+                    return Controller.MouseScrollDown;
+                case MouseButtons.TiltLeft:
+                    return false; // TODO: Implement this
+                case MouseButtons.TiltRight:
+                    return false; // TODO: Implement this
+            }
+            return false;
+        }
+
+        #endregion
+    }
 }

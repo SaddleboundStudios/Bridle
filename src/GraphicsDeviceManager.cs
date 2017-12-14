@@ -145,7 +145,7 @@ namespace Microsoft.Xna.Framework
 		{
 			if (game == null)
 			{
-				throw new ArgumentNullException("The game cannot be null!");
+				throw new ArgumentNullException(nameof(game));
 			}
 
 			this.game = game;

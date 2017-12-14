@@ -32,12 +32,15 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-
+using System.IO;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input.Bridle;
 using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Xna.Framework.Utilities;
+
 #endregion
 
 namespace Microsoft.Xna.Framework
@@ -46,8 +49,7 @@ namespace Microsoft.Xna.Framework
 	{
 		#region Public Properties
 
-		public GraphicsDeviceManager Graphics;
-		public SpriteBatch SpriteBatch;
+		public Renderer Renderer;
 
 		public GameComponentCollection Components
 		{
@@ -193,7 +195,9 @@ namespace Microsoft.Xna.Framework
 			private set;
 		}
 
-		#endregion
+	    public Dictionary<string, Font> Fonts = new Dictionary<string, Font>();
+
+	    #endregion
 
 		#region Internal Variables
 
@@ -251,11 +255,13 @@ namespace Microsoft.Xna.Framework
 
 		#region Public Constructor
 
-		public Game()
+		public Game(string rootDir)
 		{
 			AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
 
-			LaunchParameters = new LaunchParameters();
+		    RootDirectory = rootDir;
+
+            LaunchParameters = new LaunchParameters();
 			Components = new GameComponentCollection();
 			Services = new GameServiceContainer();
 			Content = new ContentManager(Services);
@@ -281,11 +287,10 @@ namespace Microsoft.Xna.Framework
 			TouchPanel.WindowHandle = Window.Handle;
 
 			FrameworkDispatcher.Update();
-
-			Graphics = new GraphicsDeviceManager(this);
-
-			// Ready to run the loop!
-			RunApplication = true;
+		    Renderer = new Renderer(this);
+            
+            // Ready to run the loop!
+            RunApplication = true;
 		}
 
 		#endregion
@@ -552,11 +557,28 @@ namespace Microsoft.Xna.Framework
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region Internal Methods
+        #region Public Properties
+	    public string RootDirectory;
 
-		internal void RedrawWindow()
+	    public int ScreenWidth
+	    {
+	        get { return Renderer.ScreenWidth; }
+	    }
+	    public int ScreenHeight
+        {
+            get { return Renderer.ScreenHeight; }
+        }
+        public int RenderWidth = 640;
+        public int RenderHeight = 480;
+        public Controller Controller = new Controller();
+        public OrderedDictionary<string, OrderedDictionary<string, TextureWithMetadata>> Textures = new OrderedDictionary<string, OrderedDictionary<string, TextureWithMetadata>>();
+        #endregion
+
+        #region Internal Methods
+
+        internal void RedrawWindow()
 		{
 			/* Draw/EndDraw should not be called if BeginDraw returns false.
 			 * http://stackoverflow.com/questions/4054936/manual-control-over-when-to-redraw-the-screen/4057180#4057180
@@ -719,9 +741,8 @@ namespace Microsoft.Xna.Framework
 			{
 				graphicsDeviceService.DeviceDisposing += (o, e) => UnloadContent();
 
-				// Go ahead and create the SpriteBatch here, so the user doesn't need to call base.LoadContent();
-				// Create a new SpriteBatch, which can be used to draw textures.
-				SpriteBatch = new SpriteBatch(GraphicsDevice);
+                // Go ahead and Initialize() the Renderer here, so the user doesn't need to call base.LoadContent();
+                Renderer.Initialize();
 
 				LoadContent();
 			}
@@ -986,6 +1007,49 @@ namespace Microsoft.Xna.Framework
 			ShowMissingRequirementMessage(args.ExceptionObject as Exception);
 		}
 
-		#endregion
-	}
+        #endregion
+
+        public string GetFilePath(string filePath)
+        {
+            string combo;
+            if (RootDirectory == null)
+            {
+                RootDirectory = "";
+            }
+            try
+            {
+                combo = Path.Combine(RootDirectory, filePath);
+            }
+            catch
+            {
+                return filePath;
+            }
+            return combo;
+        }
+
+        public Vector2 GetMousePosScaled()
+        {
+            double divisibleWidth = (double)ScreenWidth / RenderWidth;
+            double divisibleHeight = (double)ScreenHeight / RenderHeight;
+
+            //divisibleWidth = (int)Math.Floor(divisibleWidth);
+            //divisibleHeight = (int)Math.Floor(divisibleHeight);
+
+            divisibleWidth = Math.Min(divisibleWidth, divisibleHeight);
+            divisibleHeight = divisibleWidth;
+
+            int screenWidth = (int)(ScreenWidth - divisibleWidth * RenderWidth);
+            int screenHeight = (int)(ScreenHeight - divisibleHeight * RenderHeight);
+
+            int xPos = screenWidth / 2;
+            int yPos = screenHeight / 2;
+
+            Vector2 trueMouse = Controller.GetMousePos();
+
+            double X = (trueMouse.X - xPos) / divisibleWidth;
+            double Y = (trueMouse.Y - yPos) / divisibleHeight;
+
+            return new Vector2((float)X, (float)Y);
+        }
+    }
 }

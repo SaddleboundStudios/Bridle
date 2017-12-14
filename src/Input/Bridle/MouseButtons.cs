@@ -12,7 +12,7 @@
 
 using System;
 
-namespace Microsoft.Xna.Framework.Input
+namespace Microsoft.Xna.Framework.Input.Bridle
 {
 	[Flags]
 	public enum MouseButtons

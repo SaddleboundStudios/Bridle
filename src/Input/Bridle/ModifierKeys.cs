@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /* Bridle
  * Copyright 2017 Walter Barrett
  *
@@ -10,13 +10,16 @@
  */
 #endregion
 
-namespace Microsoft.Xna.Framework.Input
+using System;
+
+namespace Microsoft.Xna.Framework.Input.Bridle
 {
-	public enum InputType
+	[Flags]
+	public enum ModifierKeys
 	{
-		None,
-		Key,
-		Button,
-		MouseButton,
+		None = 0,
+		Alt = 1,
+		Ctrl = 2,
+		Shift = 4
 	}
 }
