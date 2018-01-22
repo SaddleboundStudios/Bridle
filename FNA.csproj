@@ -231,6 +231,15 @@
     <Compile Include="src\Graphics\TextureWithMetadata.cs" />
     <Compile Include="src\Graphics\TextWordData.cs" />
     <Compile Include="src\IGameScreen.cs" />
+    <Content Include="src\IntegerVector2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IntegerVector2.cs</LastGenOutput>
+    </Content>
+    <Compile Include="src\IntegerVector2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegerVector2.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\Renderer.cs" />
     <Compile Include="src\Graphics\ClearOptions.cs" />
     <Compile Include="src\Graphics\ColorWriteChannels.cs" />
@@ -476,5 +485,7 @@
       <LogicalName>Microsoft.Xna.Framework.Graphics.Effect.Resources.YUVToRGBAEffect.fxb</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
 </Project>
