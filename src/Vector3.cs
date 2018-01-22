@@ -1325,11 +1325,11 @@ namespace Microsoft.Xna.Framework
 		) {
 			if (sourceArray == null)
 			{
-				throw new ArgumentNullException("sourceArray");
+				throw new ArgumentNullException(nameof(sourceArray));
 			}
 			if (destinationArray == null)
 			{
-				throw new ArgumentNullException("destinationArray");
+				throw new ArgumentNullException(nameof(destinationArray));
 			}
 			if ((sourceIndex + length) > sourceArray.Length)
 			{

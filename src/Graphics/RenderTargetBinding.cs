@@ -49,7 +49,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (renderTarget == null)
 			{
-				throw new ArgumentNullException("renderTarget");
+				throw new ArgumentNullException(nameof(renderTarget));
 			}
 
 			this.renderTarget = renderTarget;
@@ -60,11 +60,11 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (renderTarget == null)
 			{
-				throw new ArgumentNullException("renderTarget");
+				throw new ArgumentNullException(nameof(renderTarget));
 			}
 			if (cubeMapFace < CubeMapFace.PositiveX || cubeMapFace > CubeMapFace.NegativeZ)
 			{
-				throw new ArgumentOutOfRangeException("cubeMapFace");
+				throw new ArgumentOutOfRangeException(nameof(cubeMapFace));
 			}
 
 			this.renderTarget = renderTarget;

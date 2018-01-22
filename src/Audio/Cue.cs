@@ -313,11 +313,11 @@ namespace Microsoft.Xna.Framework.Audio
 			}
 			if (listener == null)
 			{
-				throw new ArgumentNullException("listener");
+				throw new ArgumentNullException(nameof(listener));
 			}
 			if (emitter == null)
 			{
-				throw new ArgumentNullException("emitter");
+				throw new ArgumentNullException(nameof(emitter));
 			}
 			INTERNAL_listener = listener;
 			INTERNAL_emitter = emitter;
@@ -347,7 +347,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			if (name.Equals("NumCueInstances"))
 			{
@@ -456,7 +456,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			foreach (Variable curVar in INTERNAL_variables)
 			{

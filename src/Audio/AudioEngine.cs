@@ -67,7 +67,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(settingsFile))
 			{
-				throw new ArgumentNullException("settingsFile");
+				throw new ArgumentNullException(nameof(settingsFile));
 			}
 
 			using (Stream stream = TitleContainer.OpenStream(settingsFile))
@@ -474,7 +474,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			for (int i = 0; i < INTERNAL_categories.Count; i += 1)
 			{
@@ -490,7 +490,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			for (int i = 0; i < INTERNAL_variables.Count; i += 1)
 			{
@@ -510,7 +510,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			for (int i = 0; i < INTERNAL_variables.Count; i += 1)
 			{

@@ -40,7 +40,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (graphicsDevice == null)
 			{
-				throw new ArgumentNullException("graphicsDevice");
+				throw new ArgumentNullException(nameof(graphicsDevice));
 			}
 
 			GraphicsDevice = graphicsDevice;
@@ -111,7 +111,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) where T : struct {
 			if (data == null)
 			{
-				throw new ArgumentNullException("data");
+				throw new ArgumentNullException(nameof(data));
 			}
 
 			int xOffset, yOffset, width, height;

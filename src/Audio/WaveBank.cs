@@ -183,11 +183,11 @@ namespace Microsoft.Xna.Framework.Audio
 		) {
 			if (audioEngine == null)
 			{
-				throw new ArgumentNullException("audioEngine");
+				throw new ArgumentNullException(nameof(audioEngine));
 			}
 			if (String.IsNullOrEmpty(nonStreamingWaveBankFilename))
 			{
-				throw new ArgumentNullException("nonStreamingWaveBankFilename");
+				throw new ArgumentNullException(nameof(nonStreamingWaveBankFilename));
 			}
 
 			using (Stream stream = TitleContainer.OpenStream(nonStreamingWaveBankFilename))
@@ -210,11 +210,11 @@ namespace Microsoft.Xna.Framework.Audio
 
 			if (audioEngine == null)
 			{
-				throw new ArgumentNullException("audioEngine");
+				throw new ArgumentNullException(nameof(audioEngine));
 			}
 			if (String.IsNullOrEmpty(streamingWaveBankFilename))
 			{
-				throw new ArgumentNullException("streamingWaveBankFilename");
+				throw new ArgumentNullException(nameof(streamingWaveBankFilename));
 			}
 
 			INTERNAL_waveBankReader = new BinaryReader(

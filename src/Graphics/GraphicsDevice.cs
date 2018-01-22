@@ -385,7 +385,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (presentationParameters == null)
 			{
-				throw new ArgumentNullException("presentationParameters");
+				throw new ArgumentNullException(nameof(presentationParameters));
 			}
 
 			// Set the properties from the constructor parameters.
@@ -615,7 +615,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (presentationParameters == null)
 			{
-				throw new ArgumentNullException("presentationParameters");
+				throw new ArgumentNullException(nameof(presentationParameters));
 			}
 			PresentationParameters = presentationParameters;
 			Adapter = graphicsAdapter;
@@ -1009,7 +1009,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			if (vertexBuffers.Length > vertexBufferBindings.Length)
 			{
 				throw new ArgumentOutOfRangeException(
-					"vertexBuffers",
+					nameof(vertexBuffers),
 					String.Format(
 						"Max Vertex Buffers supported is {0}",
 						vertexBufferBindings.Length

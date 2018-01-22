@@ -133,7 +133,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (graphicsDevice == null)
 			{
-				throw new ArgumentNullException("graphicsDevice");
+				throw new ArgumentNullException(nameof(graphicsDevice));
 			}
 			GraphicsDevice = graphicsDevice;
 
@@ -632,7 +632,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (text == null)
 			{
-				throw new ArgumentNullException("text");
+				throw new ArgumentNullException(nameof(text));
 			}
 			DrawString(
 				spriteFont,
@@ -660,7 +660,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (text == null)
 			{
-				throw new ArgumentNullException("text");
+				throw new ArgumentNullException(nameof(text));
 			}
 			DrawString(
 				spriteFont,
@@ -694,7 +694,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			CheckBegin("DrawString");
 			if (text == null)
 			{
-				throw new ArgumentNullException("text");
+				throw new ArgumentNullException(nameof(text));
 			}
 			if (text.Length == 0)
 			{
@@ -743,7 +743,7 @@ namespace Microsoft.Xna.Framework.Graphics
 						throw new ArgumentException(
 							"Text contains characters that cannot be" +
 							" resolved by this SpriteFont.",
-							"text"
+							nameof(text)
 						);
 					}
 					index = spriteFont.characterMap.IndexOf(
@@ -874,7 +874,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			CheckBegin("DrawString");
 			if (text == null)
 			{
-				throw new ArgumentNullException("text");
+				throw new ArgumentNullException(nameof(text));
 			}
 			if (text.Length == 0)
 			{
@@ -921,7 +921,7 @@ namespace Microsoft.Xna.Framework.Graphics
 						throw new ArgumentException(
 							"Text contains characters that cannot be" +
 							" resolved by this SpriteFont.",
-							"text"
+							nameof(text)
 						);
 					}
 					index = spriteFont.characterMap.IndexOf(

@@ -41,11 +41,11 @@ namespace Microsoft.Xna.Framework
 		{
 			if (type == null)
 			{
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 			}
 			if (provider == null)
 			{
-				throw new ArgumentNullException("provider");
+				throw new ArgumentNullException(nameof(provider));
 			}
 			if (!type.IsAssignableFrom(provider.GetType()))
 			{
@@ -61,7 +61,7 @@ namespace Microsoft.Xna.Framework
 		{
 			if (type == null)
 			{
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 			}
 
 			object service;
@@ -77,7 +77,7 @@ namespace Microsoft.Xna.Framework
 		{
 			if (type == null)
 			{
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 			}
 
 			services.Remove(type);

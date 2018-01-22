@@ -336,11 +336,11 @@ namespace Microsoft.Xna.Framework
 		{
 			if (corners == null)
 			{
-				throw new ArgumentNullException("corners");
+				throw new ArgumentNullException(nameof(corners));
 			}
 			if (corners.Length < CornerCount)
 			{
-				throw new ArgumentOutOfRangeException("corners");
+				throw new ArgumentOutOfRangeException(nameof(corners));
 			}
 
 			this.corners.CopyTo(corners, 0);

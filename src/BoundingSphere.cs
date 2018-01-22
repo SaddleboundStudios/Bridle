@@ -356,7 +356,7 @@ namespace Microsoft.Xna.Framework
 		{
 			if (points == null)
 			{
-				throw new ArgumentNullException("points");
+				throw new ArgumentNullException(nameof(points));
 			}
 
 			// From "Real-Time Collision Detection" (Page 89)

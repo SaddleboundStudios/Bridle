@@ -135,11 +135,11 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (destinationBoneTransforms == null)
 			{
-				throw new ArgumentNullException("destinationBoneTransforms");
+				throw new ArgumentNullException(nameof(destinationBoneTransforms));
 			}
 			if (destinationBoneTransforms.Length < Bones.Count)
 			{
-				throw new ArgumentOutOfRangeException("destinationBoneTransforms");
+				throw new ArgumentOutOfRangeException(nameof(destinationBoneTransforms));
 			}
 
 			int count = Bones.Count;
@@ -171,11 +171,11 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (sourceBoneTransforms == null)
 			{
-				throw new ArgumentNullException("sourceBoneTransforms");
+				throw new ArgumentNullException(nameof(sourceBoneTransforms));
 			}
 			if (sourceBoneTransforms.Length < Bones.Count)
 			{
-				throw new ArgumentOutOfRangeException("sourceBoneTransforms");
+				throw new ArgumentOutOfRangeException(nameof(sourceBoneTransforms));
 			}
 			for (int i = 0; i < sourceBoneTransforms.Length; i += 1)
 			{
@@ -191,11 +191,11 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (destinationBoneTransforms == null)
 			{
-				throw new ArgumentNullException("destinationBoneTransforms");
+				throw new ArgumentNullException(nameof(destinationBoneTransforms));
 			}
 			if (destinationBoneTransforms.Length < Bones.Count)
 			{
-				throw new ArgumentOutOfRangeException("destinationBoneTransforms");
+				throw new ArgumentOutOfRangeException(nameof(destinationBoneTransforms));
 			}
 			for (int i = 0; i < destinationBoneTransforms.Length; i += 1)
 			{

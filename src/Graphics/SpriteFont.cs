@@ -120,7 +120,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			 */
 			if (text == null)
 			{
-				throw new ArgumentNullException("text");
+				throw new ArgumentNullException(nameof(text));
 			}
 			if (text.Length == 0)
 			{
@@ -162,7 +162,7 @@ namespace Microsoft.Xna.Framework.Graphics
 						throw new ArgumentException(
 							"Text contains characters that cannot be" +
 							" resolved by this SpriteFont.",
-							"text"
+							nameof(text)
 						);
 					}
 					index = characterMap.IndexOf(DefaultCharacter.Value);
@@ -212,7 +212,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			 */
 			if (text == null)
 			{
-				throw new ArgumentNullException("text");
+				throw new ArgumentNullException(nameof(text));
 			}
 			if (text.Length == 0)
 			{
@@ -256,7 +256,7 @@ namespace Microsoft.Xna.Framework.Graphics
 						throw new ArgumentException(
 							"Text contains characters that cannot be" +
 							" resolved by this SpriteFont.",
-							"text"
+							nameof(text)
 						);
 					}
 					index = characterMap.IndexOf(DefaultCharacter.Value);

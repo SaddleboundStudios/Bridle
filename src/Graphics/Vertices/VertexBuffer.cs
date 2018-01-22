@@ -87,7 +87,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (graphicsDevice == null)
 			{
-				throw new ArgumentNullException("graphicsDevice");
+				throw new ArgumentNullException(nameof(graphicsDevice));
 			}
 
 			GraphicsDevice = graphicsDevice;
@@ -159,12 +159,12 @@ namespace Microsoft.Xna.Framework.Graphics
 		) where T : struct {
 			if (data == null)
 			{
-				throw new ArgumentNullException("data");
+				throw new ArgumentNullException(nameof(data));
 			}
 			if (data.Length < (startIndex + elementCount))
 			{
 				throw new ArgumentOutOfRangeException(
-					"elementCount",
+					nameof(elementCount),
 					"This parameter must be a valid index within the array."
 				);
 			}
@@ -181,7 +181,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			else if (vertexStride < elementSizeInBytes)
 			{
 				throw new ArgumentOutOfRangeException(
-					"vertexStride",
+					nameof(vertexStride),
 					"The vertex stride is too small for the type of data requested. This is not allowed."
 				);
 			}
@@ -266,7 +266,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) where T : struct {
 			if (data == null)
 			{
-				throw new ArgumentNullException("data");
+				throw new ArgumentNullException(nameof(data));
 			}
 			if ((startIndex + elementCount > data.Length) || elementCount <= 0)
 			{

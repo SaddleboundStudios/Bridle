@@ -102,7 +102,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if (graphicsDevice == null)
 			{
-				throw new ArgumentNullException("graphicsDevice");
+				throw new ArgumentNullException(nameof(graphicsDevice));
 			}
 
 			GraphicsDevice = graphicsDevice;
@@ -165,7 +165,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) where T : struct {
 			if (data == null)
 			{
-				throw new ArgumentNullException("data");
+				throw new ArgumentNullException(nameof(data));
 			}
 			if (data.Length < (startIndex + elementCount))
 			{
@@ -250,7 +250,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) where T : struct {
 			if (data == null)
 			{
-				throw new ArgumentNullException("data");
+				throw new ArgumentNullException(nameof(data));
 			}
 			if (data.Length < (startIndex + elementCount))
 			{
@@ -306,7 +306,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			}
 
 			throw new ArgumentOutOfRangeException(
-				"type",
+				nameof(type),
 				"Index buffers can only be created for types" +
 				" that are sixteen or thirty two bits in length"
 			);

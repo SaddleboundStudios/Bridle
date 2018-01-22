@@ -31,7 +31,7 @@ namespace Microsoft.Xna.Framework.Content
 		) : base(servicesProvider) {
 			if (resource == null)
 			{
-				throw new ArgumentNullException("resource");
+				throw new ArgumentNullException(nameof(resource));
 			}
 			this.resource = resource;
 		}

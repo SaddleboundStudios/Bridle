@@ -57,11 +57,11 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (audioEngine == null)
 			{
-				throw new ArgumentNullException("audioEngine");
+				throw new ArgumentNullException(nameof(audioEngine));
 			}
 			if (String.IsNullOrEmpty(filename))
 			{
-				throw new ArgumentNullException("filename");
+				throw new ArgumentNullException(nameof(filename));
 			}
 
 			INTERNAL_baseEngine = audioEngine;
@@ -423,7 +423,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			if (!INTERNAL_cueData.ContainsKey(name))
 			{
@@ -442,7 +442,7 @@ namespace Microsoft.Xna.Framework.Audio
 		{
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			if (!INTERNAL_cueData.ContainsKey(name))
 			{
@@ -465,7 +465,7 @@ namespace Microsoft.Xna.Framework.Audio
 		) {
 			if (String.IsNullOrEmpty(name))
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 			if (!INTERNAL_cueData.ContainsKey(name))
 			{

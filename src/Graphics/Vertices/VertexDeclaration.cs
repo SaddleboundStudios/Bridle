@@ -45,7 +45,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		) {
 			if ((elements == null) || (elements.Length == 0))
 			{
-				throw new ArgumentNullException("elements", "Elements cannot be empty");
+				throw new ArgumentNullException(nameof(elements), "Elements cannot be empty");
 			}
 
 			this.elements = (VertexElement[]) elements.Clone();
@@ -78,7 +78,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (vertexType == null)
 			{
-				throw new ArgumentNullException("vertexType", "Cannot be null");
+				throw new ArgumentNullException(nameof(vertexType), "Cannot be null");
 			}
 
 			if (!vertexType.IsValueType)

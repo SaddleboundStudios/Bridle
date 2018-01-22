@@ -67,7 +67,7 @@ namespace Microsoft.Xna.Framework.Graphics
 		{
 			if (string.IsNullOrEmpty(meshName))
 			{
-				throw new ArgumentNullException("meshName");
+				throw new ArgumentNullException(nameof(meshName));
 			}
 
 			foreach (ModelMesh mesh in this)
