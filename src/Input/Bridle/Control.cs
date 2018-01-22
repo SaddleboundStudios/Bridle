@@ -105,6 +105,43 @@ namespace Microsoft.Xna.Framework.Input.Bridle
 		}
 
 		/// <summary>
+		/// Returns true if the control was just pressed this frame or if it's repeated, false otherwise.
+		/// </summary>
+		/// <param name="isFresh">If this is not a repeated press, this is set to true.</param>
+		/// <param name="initialDelay"></param>
+		/// <param name="finalDelay"></param>
+		/// <param name="delayRampTime"></param>
+		/// <returns></returns>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2233:OperationsShouldNotOverflow", MessageId = "initialDelay*10")]
+		public bool PressedRecurring(ref bool isFresh, int initialDelay, int finalDelay, int delayRampTime = -1)
+		{
+			if (_currentState && !_previousState)
+			{
+				_lastRecurring = FramesEnabled;
+				isFresh = true;
+				return true;
+			}
+
+			if (!_currentState)
+			{
+				return false;
+			}
+
+			int currentFrame = FramesEnabled - _lastRecurring;
+			if (delayRampTime == -1)
+			{
+				delayRampTime = initialDelay * 4;
+			}
+
+			if (currentFrame < delayRampTime)
+			{
+				return (currentFrame % (initialDelay)) == 0;
+			}
+
+			return (currentFrame % finalDelay) == 0;
+		}
+
+		/// <summary>
 		/// Returns true if the control is still being held this frame after being held the last, false otherwise.
 		/// </summary>
 		public bool Held()
