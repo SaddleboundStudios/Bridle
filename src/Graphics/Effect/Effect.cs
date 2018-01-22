@@ -1059,6 +1059,7 @@ namespace Microsoft.Xna.Framework.Graphics
 					{
 						if (textureName.Equals(parameters[j].Name))
 						{
+							// ReSharper disable once AssignNullToNotNullAttribute
 							samplerMap[Marshal.PtrToStringAnsi(param.value.name)] = parameters[j];
 							break;
 						}
