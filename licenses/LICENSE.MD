@@ -1,13 +1,13 @@
-This project is released under the Microsoft Public License (MS-PL). Certain
-files of this project are dual-licensed under the MS-PL and the 3-Clause BSD
+This project is released under the Microsoft Public License (Ms-PL). Certain
+files of this project are dual-licensed under the Ms-PL and the 3-Clause BSD
 License, both of which are reproduced below. Other files may be under other
 licenses. Check the "Licenses" directory for more information.
 
-Microsoft Public License (MS-PL)
+Microsoft Public License (Ms-PL)
 ================================
 
 Bridle - Copyright 2017 Walter Barrett
-FNA - Copyright 2009-2017 Ethan Lee and the MonoGame Team
+FNA - Copyright 2009-2018 Ethan Lee and the MonoGame Team
 
 All rights reserved.
 

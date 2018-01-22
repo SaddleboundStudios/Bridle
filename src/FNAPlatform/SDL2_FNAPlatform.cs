@@ -1,6 +1,6 @@
 #region License
 /* FNA - XNA4 Reimplementation for Desktop Platforms
- * Copyright 2009-2017 Ethan Lee and the MonoGame Team
+ * Copyright 2009-2018 Ethan Lee and the MonoGame Team
  *
  * Released under the Microsoft Public License.
  * See LICENSE for details.
@@ -524,6 +524,16 @@ namespace Microsoft.Xna.Framework
 			return fileIn;
 		}
 
+		public static void SetTextInputRectangle(Rectangle rectangle)
+		{
+			SDL.SDL_Rect rect = new SDL.SDL_Rect();
+			rect.x = rectangle.X;
+			rect.y = rectangle.Y;
+			rect.w = rectangle.Width;
+			rect.h = rectangle.Height;
+			SDL.SDL_SetTextInputRect(ref rect);
+		}
+
 		#endregion
 
 		#region Event Loop
@@ -1015,9 +1025,12 @@ namespace Microsoft.Xna.Framework
 				osConfigDir += "/Library/Application Support";
 				return osConfigDir;
 			}
-			if (OSVersion.Equals("Linux"))
+			if (	OSVersion.Equals("Linux") ||
+				OSVersion.Equals("FreeBSD") ||
+				OSVersion.Equals("OpenBSD") ||
+				OSVersion.Equals("NetBSD")	)
 			{
-				// Assuming a non-OSX Unix platform will follow the XDG. Which it should.
+				// Assuming a non-macOS Unix platform will follow the XDG. Which it should.
 				string osConfigDir = Environment.GetEnvironmentVariable("XDG_DATA_HOME");
 				if (String.IsNullOrEmpty(osConfigDir))
 				{

@@ -16,7 +16,7 @@ using System.Resources;
 #endif
 [assembly: AssemblyCompany("Saddlebound Studios")]
 [assembly: AssemblyProduct("Bridle")]
-[assembly: AssemblyCopyright("Copyright (c) 2017")]
+[assembly: AssemblyCopyright("Copyright (c) 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -44,4 +44,4 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("17.12.0.0")]
+[assembly: AssemblyVersion("18.01.02.0")]
